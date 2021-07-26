@@ -17,7 +17,6 @@ function App() {
       <div>{ props.name} kitchen</div>
     )
   };
-
   function Main(props){
     return(
       <section>
@@ -38,7 +37,7 @@ function App() {
     )
     
   };
-  
+
   const dishes =[
     "Macaroni and Cheese",
     "Lanzhou Noodles", 
