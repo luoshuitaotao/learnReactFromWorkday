@@ -1,49 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
-import restaurant from "./restaurant.jpg";
 
 function App() {
-  return (
-    <div className="App">
-      <Header name="Jing's" />
-      <Main adjective="delicious" dishes={dishObjects}/>
-      <Footer year= { new Date().getFullYear()} />
+  const [emotion,setEmotion]= useState("happy");
+  const [secondary, setSecondary] = useState("tired");
 
-    </div>
-  );}
+useEffect(()=>{
+  console.log(`It's ${emotion} around here!`);
+},[emotion]);
+useEffect(()=>{
+  console.log(`It's ${secondary} around here!`);
+},[secondary]);
 
-  function Header(props){
-    return(
-      <div>{ props.name} kitchen</div>
-    )
-  };
-  function Main(props){
-    return(
-      <section>
-        <p>We serve the most { props.abjective } food around.</p>
-      <img src={restaurant} height={300} alt="tables and chairs at the restaurant"/>
-      <ul style={ {textAlign:"left"}}>
-        { props.dishes.map((dish)=>(
-          <li key={dish.id}>{dish.title}</li>
-        ))}
-      </ul>
-      </section>
-    )
-  };
+  return(
+    <>
+    <h1>Currently emtion is {emotion} and {secondary}.</h1>
+    <button onClick={ ()=> setEmotion("Frustrated") }>Make Frustrate</button>
+    <button onClick={ ()=> setEmotion("Enthusiastic") }>Make Enthusiastic</button>
+    <button onClick={ ()=> setEmotion("Happy") }>Make Happy</button>
+    <button onClick={ ()=> setSecondary("crabby") }>Make Crabby</button>
 
-  function Footer(props){
-    return(
-      <div>Copyright {props.year }</div>
-    )
-    
-  };
+    </>
+  )
+}
 
-  const dishes =[
-    "Macaroni and Cheese",
-    "Lanzhou Noodles", 
-    "Fish Soup"
-  ]
-  const dishObjects = dishes.map((dish,i)=>({id: i, title:dish}));
 
 
 export default App;
