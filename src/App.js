@@ -11,6 +11,7 @@ function App() {
 
     </div>
   );}
+
   function Header(props){
     return(
       <div>{ props.name} kitchen</div>
@@ -30,12 +31,14 @@ function App() {
       </section>
     )
   };
+
   function Footer(props){
     return(
       <div>Copyright {props.year }</div>
     )
     
   };
+  
   const dishes =[
     "Macaroni and Cheese",
     "Lanzhou Noodles", 
